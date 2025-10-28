@@ -1,6 +1,6 @@
 {
-   "buildCommand": "npm run build",
+  "buildCommand": "npm run build",
   "installCommand": "npm install",
-  "framework": "vite",
-  "nodeVersion": "20.x"
+  "outputDirectory": "dist",
+  "framework": "vite"
 }
