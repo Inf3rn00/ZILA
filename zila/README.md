@@ -5,6 +5,7 @@ A robust, production-ready ticket management web application built with React, T
 ## Features
 
 ### Core Functionality
+
 - **Landing Page**: Eye-catching hero section with wavy SVG background and decorative elements
 - **Authentication System**: Secure login and signup with form validation
 - **Dashboard**: Overview of ticket statistics with visual indicators
@@ -13,74 +14,87 @@ A robust, production-ready ticket management web application built with React, T
 - **Responsive Design**: Fully responsive layout for mobile, tablet, and desktop (max-width: 1440px)
 
 ### Technical Highlights
--  Input validation using Zod schema
--  Toast notifications for user feedback
--  Status-based color coding (Open: Green, In Progress: Amber, Closed: Gray)
--  Semantic HTML and accessibility compliance
--  Modern design system with HSL color tokens
--  Smooth transitions and hover effects
+
+- Input validation using Zod schema
+- Toast notifications for user feedback
+- Status-based color coding (Open: Green, In Progress: Amber, Closed: Gray)
+- Semantic HTML and accessibility compliance
+- Modern design system with HSL color tokens
+- Smooth transitions and hover effects
 
 ## Technologies Used
 
 ### Frontend Framework & Libraries
+
 - **React 18.3.1** - UI library
 - **TypeScript** - Type-safe JavaScript
-- **Vite** - Fast build tool and dev server
-- **React Router DOM 6.30.1** - Client-side routing
+- **Vite 7.1.12** - Fast build tool and dev server
+- **React Router DOM 7.9.4** - Client-side routing
 
 ### UI Components & Styling
-- **Tailwind CSS** - Utility-first CSS framework
-- **shadcn/ui** - High-quality React components
+
+- **Tailwind CSS 4.1.16** - Utility-first CSS framework
+- **@tailwindcss/vite 4.1.16** - Tailwind plugin for Vite
 - **Radix UI** - Accessible component primitives
+  - @radix-ui/react-label
+  - @radix-ui/react-slot
+  - @radix-ui/react-select
+  - @radix-ui/react-alert-dialog
 - **Lucide React** - Beautiful icon library
 - **class-variance-authority** - Component variants
 - **tailwind-merge** - Merge Tailwind classes
+- **clsx** - Conditional class names
 
 ### Form Handling & Validation
-- **React Hook Form 7.61.1** - Form state management
-- **Zod 3.25.76** - Schema validation
-- **@hookform/resolvers** - Form validation resolvers
+
+- **Zod 4.1.12** - Schema validation
 
 ### State Management & Data Fetching
-- **TanStack React Query 5.83.0** - Server state management
+
+- **TanStack React Query 5.90.5** - Server state management
 - **localStorage** - Session and data persistence
 
 ### User Feedback
-- **Sonner** - Toast notifications
-- **Radix UI Toast** - Accessible toast component
 
-##  Setup & Installation
+- **Sonner** - Toast notifications
+
+## Setup & Installation
 
 ### Prerequisites
+
 - Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation Steps
 
-1. **Clone the repository**
+1. **Navigate to the zila directory**
+
 ```bash
-git clone <YOUR_GIT_URL>
-cd ZILA
+cd zila
 ```
 
 2. **Install dependencies**
+
 ```bash
 npm install
 ```
 
 3. **Start development server**
+
 ```bash
 npm run dev
 ```
 
-The application will be available at `http://localhost:8080`
+The application will be available at `http://localhost:5173` (or the port shown in the terminal)
 
 ### Build for Production
+
 ```bash
 npm run build
 ```
 
 ### Preview Production Build
+
 ```bash
 npm run preview
 ```
@@ -88,6 +102,7 @@ npm run preview
 ##Design System
 
 ### Color Scheme
+
 The application uses a comprehensive design system defined in `src/index.css`:
 
 - **Primary**: Indigo gradient (`hsl(239, 84%, 67%)` to `hsl(262, 83%, 58%)`)
@@ -97,6 +112,7 @@ The application uses a comprehensive design system defined in `src/index.css`:
   - Closed: Gray (`hsl(215, 16%, 47%)`)
 
 ### Layout
+
 - Maximum container width: 1440px (centered)
 - Responsive breakpoints: Mobile (<768px), Tablet (768px-1024px), Desktop (>1024px)
 - Consistent spacing and typography throughout
@@ -104,31 +120,34 @@ The application uses a comprehensive design system defined in `src/index.css`:
 ## Authentication
 
 ### Test Credentials
+
 Since this is a frontend-only implementation, you can create your own account through the signup page. The authentication system uses localStorage for session management.
 
 **Session Key**: `ticketapp_session`
 **Users Storage Key**: `ticketapp_users`
 
 ### Authentication Flow
+
 1. Users can sign up with email, password, and name
 2. Login validates credentials against localStorage
 3. Session token is stored in localStorage
 4. Protected routes check for valid session
 5. Logout clears session and redirects to home
 
-##  Pages & Routes
+## Pages & Routes
 
-| Route | Component | Access | Description |
-|-------|-----------|--------|-------------|
-| `/` | Landing | Public | Hero page with features and CTA |
-| `/auth/login` | Login | Public | User login form |
-| `/auth/signup` | Signup | Public | User registration form |
-| `/dashboard` | Dashboard | Protected | Statistics overview |
-| `/tickets` | Tickets | Protected | Ticket management (CRUD) |
+| Route          | Component | Access    | Description                     |
+| -------------- | --------- | --------- | ------------------------------- |
+| `/`            | Landing   | Public    | Hero page with features and CTA |
+| `/auth/login`  | Login     | Public    | User login form                 |
+| `/auth/signup` | Signup    | Public    | User registration form          |
+| `/dashboard`   | Dashboard | Protected | Statistics overview             |
+| `/tickets`     | Tickets   | Protected | Ticket management (CRUD)        |
 
-##  Data Validation
+## Data Validation
 
 ### Ticket Schema
+
 ```typescript
 {
   title: string (required, max 100 chars)
@@ -139,6 +158,7 @@ Since this is a frontend-only implementation, you can create your own account th
 ```
 
 ### User Schema
+
 ```typescript
 {
   name: string (2-50 chars)
@@ -150,6 +170,7 @@ Since this is a frontend-only implementation, you can create your own account th
 ## UI Components Structure
 
 ### Reusable Components
+
 - `Button` - Multiple variants (default, hero, outline, ghost)
 - `Badge` - Status-based color variants
 - `Card` - Content containers with hover effects
@@ -159,10 +180,11 @@ Since this is a frontend-only implementation, you can create your own account th
 - `Toast` - User feedback notifications
 
 ### Layout Components
+
 - `Footer` - Consistent footer across all pages
 - `ProtectedRoute` - Authentication wrapper
 
-##  Accessibility Features
+## Accessibility Features
 
 - Semantic HTML5 elements (`<header>`, `<main>`, `<section>`, `<footer>`)
 - ARIA labels and descriptions
@@ -181,14 +203,15 @@ The application implements comprehensive error handling:
 3. **User-Friendly Messages**: Descriptive error messages
 4. **Toast Notifications**: Non-intrusive feedback system
 
-##  Data Storage
+## Data Storage
 
 All data is stored in localStorage:
+
 - `ticketapp_session`: Current user session
 - `ticketapp_users`: Registered users
 - `tickets`: All created tickets
 
-##  State Management
+## State Management
 
 - **Authentication State**: Managed by React Context (`AuthContext`)
 - **Form State**: React Hook Form
@@ -204,7 +227,7 @@ All data is stored in localStorage:
 - No email verification system
 - No password recovery feature
 
-##  Future Enhancements
+## Future Enhancements
 
 - Backend API integration
 - Real-time ticket updates (WebSocket)
@@ -215,11 +238,11 @@ All data is stored in localStorage:
 - Team collaboration features
 - Export functionality
 
-##  License
+## License
 
 This project is created for demonstration purposes.
 
-##  Support
+## Support
 
 For issues or questions, please create an issue in the repository.
 
