@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Input } from "../components/ui/input";
@@ -35,11 +35,12 @@ const Login = () => {
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
-  // Redirect if already authenticated
-  if (isAuthenticated) {
-    navigate("/dashboard");
-    return null;
-  }
+  // Redirect if already authenticated - using useEffect
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/dashboard");
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,6 +70,11 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+
+  // Don't render if authenticated (will be redirected by useEffect)
+  if (isAuthenticated) {
+    return null;
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50/30 py-12 px-4 relative overflow-hidden">
@@ -219,6 +225,8 @@ const Login = () => {
           </div>
         </CardFooter>
       </Card>
+
+    
     </div>
   );
 };
