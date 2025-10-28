@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authContext";
 import { Input } from "../components/ui/input";
-import { Label } from "../components/ui/Label";
+import { Label } from "../components/ui/label";
 import {
   Card,
   CardHeader,
